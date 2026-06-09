@@ -34,7 +34,6 @@
   .screen { display: none; flex-direction: column; flex: 1; }
   .screen.active { display: flex; }
 
-  /* HEADER */
   .header {
     background: var(--surface);
     padding: 16px 20px;
@@ -51,13 +50,11 @@
     border-radius: 8px; transition: color 0.2s;
   }
 
-  /* MAIN */
   .main {
     flex: 1; padding: 20px; overflow-y: auto;
     display: flex; flex-direction: column; gap: 16px;
   }
 
-  /* DATE */
   .date-bar {
     background: var(--surface); border-radius: var(--radius);
     padding: 14px 18px; display: flex; align-items: center;
@@ -70,13 +67,11 @@
   }
   .date-input::-webkit-calendar-picker-indicator { filter: invert(1); }
 
-  /* SECTION */
   .section-label {
     font-size: 12px; font-weight: 700; color: var(--text-muted);
     text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;
   }
 
-  /* TAG BUTTONS (mood & 運動種別) */
   .tag-grid { display: flex; gap: 8px; flex-wrap: wrap; }
   .tag-btn {
     background: var(--surface); border: 2px solid var(--border);
@@ -93,7 +88,6 @@
   .tag-btn.mood-neg { border-color: #6a2a3a; color: #f5a0b0; }
   .tag-btn.mood-neg.selected { background: rgba(245,100,120,0.2); border-color: #f5a0b0; }
 
-  /* TEXTAREA */
   .diary-textarea {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); color: var(--text);
@@ -105,24 +99,18 @@
   .diary-textarea::placeholder { color: var(--text-muted); }
   .char-count { text-align: right; font-size: 12px; color: var(--text-muted); margin-top: -8px; }
 
-  /* PHOTO */
   .photo-area {
     background: var(--surface); border: 2px dashed var(--border);
     border-radius: var(--radius); padding: 20px; text-align: center;
     cursor: pointer; transition: border-color 0.2s; position: relative;
   }
   .photo-area:hover { border-color: var(--accent2); }
-  .photo-area input[type=file] {
-    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
-  }
   .photo-placeholder { color: var(--text-muted); font-size: 14px; }
   .photo-placeholder .photo-icon { font-size: 32px; margin-bottom: 8px; }
   .photo-previews {
     display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; justify-content: center;
   }
-  .photo-thumb {
-    position: relative; width: 80px; height: 80px;
-  }
+  .photo-thumb { position: relative; width: 80px; height: 80px; }
   .photo-thumb img {
     width: 80px; height: 80px; object-fit: cover; border-radius: 10px;
     border: 2px solid var(--accent2);
@@ -132,26 +120,8 @@
     background: var(--accent); border: none; border-radius: 50%;
     width: 20px; height: 20px; color: white; font-size: 12px;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
-    font-family: var(--font);
   }
 
-  /* CUSTOM TAG INPUT */
-  .custom-tag-row { display: flex; gap: 8px; margin-top: 8px; }
-  .custom-tag-input {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text); font-family: var(--font);
-    font-size: 14px; padding: 8px 12px; flex: 1; outline: none;
-    transition: border-color 0.2s;
-  }
-  .custom-tag-input:focus { border-color: var(--accent2); }
-  .custom-tag-input::placeholder { color: var(--text-muted); }
-  .add-tag-btn {
-    background: var(--card); border: 1px solid var(--accent2);
-    border-radius: 10px; color: var(--text); font-family: var(--font);
-    font-size: 14px; padding: 8px 14px; cursor: pointer;
-  }
-
-  /* SEND */
   .send-btn {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     border: none; border-radius: var(--radius); color: white;
@@ -162,20 +132,17 @@
   .send-btn:active { transform: scale(0.98); opacity: 0.9; }
   .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* TOAST */
   .toast {
     position: fixed; bottom: 80px; left: 50%;
     transform: translateX(-50%) translateY(100px);
     background: var(--success); color: white; padding: 14px 24px;
     border-radius: 50px; font-weight: 700; font-size: 15px;
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    z-index: 100; white-space: nowrap; max-width: 90vw;
-    text-align: center;
+    z-index: 100; white-space: nowrap; max-width: 90vw; text-align: center;
   }
   .toast.error { background: var(--error); }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* SETTINGS */
   .settings-card {
     background: var(--surface); border-radius: var(--radius);
     padding: 20px; border: 1px solid var(--border);
@@ -198,7 +165,7 @@
   .save-btn {
     background: var(--card); border: 1px solid var(--accent2);
     border-radius: var(--radius); color: var(--text); font-family: var(--font);
-    font-size: 15px; font-weight: 700; padding: 14px; cursor: pointer; transition: all 0.2s;
+    font-size: 15px; font-weight: 700; padding: 14px; cursor: pointer;
   }
   .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--error); display: inline-block; }
   .status-dot.ok { background: var(--success); }
@@ -215,7 +182,6 @@
     padding: 8px 14px; cursor: pointer; margin-top: 8px; display: inline-block;
   }
 
-  /* HISTORY */
   .history-list { display: flex; flex-direction: column; gap: 12px; }
   .history-item {
     background: var(--surface); border-radius: var(--radius);
@@ -231,7 +197,6 @@
   .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
   .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
 
-  /* NAV */
   .bottom-nav {
     background: var(--surface); border-top: 1px solid var(--border);
     display: flex; padding: 8px 0;
@@ -253,20 +218,16 @@
     border-radius: 50%; animation: spin 0.8s linear infinite;
     vertical-align: middle; margin-right: 8px;
   }
-  .progress-label { font-size: 13px; opacity: 0.8; }
 </style>
 </head>
 <body>
 
-<!-- WRITE SCREEN -->
 <div class="screen active" id="screen-write">
   <div class="header">
     <h1>✍️ 今日の日記</h1>
     <button class="header-btn" onclick="showScreen('settings')">⚙️</button>
   </div>
   <div class="main">
-
-    <!-- Setup banner -->
     <div class="setup-banner" id="setup-banner" style="display:none">
       <div style="font-size:22px">🔑</div>
       <div class="setup-banner-text">
@@ -276,13 +237,11 @@
       </div>
     </div>
 
-    <!-- Date -->
     <div class="date-bar">
       <span style="font-size:20px">📅</span>
       <input type="date" class="date-input" id="diary-date">
     </div>
 
-    <!-- Mood -->
     <div>
       <div class="section-label">mood（複数選択可）</div>
       <div class="tag-grid" id="mood-grid">
@@ -318,7 +277,6 @@
       </div>
     </div>
 
-    <!-- 運動種別 -->
     <div>
       <div class="section-label">運動種別（複数選択可）</div>
       <div class="tag-grid" id="sport-grid">
@@ -329,7 +287,6 @@
       </div>
     </div>
 
-    <!-- Diary content -->
     <div style="display:flex;flex-direction:column;gap:8px">
       <div class="section-label">日記</div>
       <textarea class="diary-textarea" id="diary-content"
@@ -338,7 +295,6 @@
       <div class="char-count"><span id="char-count">0</span> 文字</div>
     </div>
 
-    <!-- Photo -->
     <div>
       <div class="section-label">写真（複数枚可）</div>
       <div class="photo-area" onclick="document.getElementById('photo-input').click()">
@@ -352,14 +308,12 @@
       </div>
     </div>
 
-    <!-- Send -->
     <button class="send-btn" id="send-btn" onclick="saveDiary()">
       Notionに保存する
     </button>
   </div>
 </div>
 
-<!-- HISTORY SCREEN -->
 <div class="screen" id="screen-history">
   <div class="header">
     <h1>📚 過去の日記</h1>
@@ -370,7 +324,6 @@
   </div>
 </div>
 
-<!-- SETTINGS SCREEN -->
 <div class="screen" id="screen-settings">
   <div class="header">
     <button class="header-btn" onclick="showScreen('write')">←</button>
@@ -403,7 +356,6 @@
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <button class="nav-btn active" id="nav-write" onclick="showScreen('write')">
     <span class="nav-icon">✍️</span>書く
@@ -419,24 +371,19 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// STATE
 let selectedMoods = new Set();
 let selectedSports = new Set();
-let selectedPhotos = []; // { file, previewUrl }
+let selectedPhotos = [];
 
-// INIT
 document.addEventListener('DOMContentLoaded', () => {
   const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const dd = String(today.getDate()).padStart(2, '0');
-  document.getElementById('diary-date').value = `${yyyy}-${mm}-${dd}`;
+  document.getElementById('diary-date').value =
+    `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   loadSettings();
   checkSetup();
   renderHistory();
 });
 
-// SCREEN NAV
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + name).classList.add('active');
@@ -446,7 +393,6 @@ function showScreen(name) {
   if (name === 'history') renderHistory();
 }
 
-// TAGS (mood & sport)
 function toggleTag(btn, type) {
   const val = btn.dataset[type === 'mood' ? 'mood' : 'sport'];
   const set = type === 'mood' ? selectedMoods : selectedSports;
@@ -454,17 +400,13 @@ function toggleTag(btn, type) {
   else { set.add(val); btn.classList.add('selected'); }
 }
 
-
-// CHAR COUNT
 function updateCharCount() {
   document.getElementById('char-count').textContent =
     document.getElementById('diary-content').value.length;
 }
 
-// PHOTOS
 function handlePhotos(e) {
-  const files = Array.from(e.target.files);
-  files.forEach(file => {
+  Array.from(e.target.files).forEach(file => {
     const reader = new FileReader();
     reader.onload = ev => {
       selectedPhotos.push({ file, previewUrl: ev.target.result });
@@ -472,7 +414,7 @@ function handlePhotos(e) {
     };
     reader.readAsDataURL(file);
   });
-  e.target.value = ''; // reset so same file can be re-added
+  e.target.value = '';
 }
 
 function renderPhotoPreviews() {
@@ -492,13 +434,10 @@ function removePhoto(i) {
   renderPhotoPreviews();
 }
 
-// SETTINGS
 function loadSettings() {
-  const token = localStorage.getItem('notion_token') || '';
-  const db = localStorage.getItem('notion_db') || '';
-  document.getElementById('notion-token').value = token;
-  document.getElementById('notion-db').value = db;
-  updateStatusDot(!!token && !!db);
+  document.getElementById('notion-token').value = localStorage.getItem('notion_token') || '';
+  document.getElementById('notion-db').value = localStorage.getItem('notion_db') || '';
+  updateStatusDot(!!(localStorage.getItem('notion_token') && localStorage.getItem('notion_db')));
 }
 
 function saveSettings() {
@@ -522,7 +461,6 @@ function checkSetup() {
   document.getElementById('setup-banner').style.display = ok ? 'none' : 'flex';
 }
 
-// SAVE DIARY
 async function saveDiary() {
   const token = localStorage.getItem('notion_token');
   const dbId = localStorage.getItem('notion_db');
@@ -536,38 +474,32 @@ async function saveDiary() {
   btn.disabled = true;
 
   try {
-    // 1. Upload photos if any
     let fileIds = [];
     if (selectedPhotos.length > 0) {
-      btn.innerHTML = `<span class="spinner"></span>写真をアップロード中… (0/${selectedPhotos.length})`;
       for (let i = 0; i < selectedPhotos.length; i++) {
-        btn.innerHTML = `<span class="spinner"></span>写真をアップロード中… (${i+1}/${selectedPhotos.length})`;
+        btn.innerHTML = `<span class="spinner"></span>写真アップロード中… (${i+1}/${selectedPhotos.length})`;
         try {
           const fid = await uploadPhoto(selectedPhotos[i].file, token, dbId);
           if (fid) fileIds.push(fid);
-        } catch(photoErr) {
-          console.warn('写真アップロード失敗:', photoErr);
-          showToast(`写真${i+1}枚目のアップロードに失敗（日記は保存します）`, 'error');
+        } catch(e) {
+          console.warn('写真アップロード失敗:', e);
+          showToast(`写真${i+1}枚目のアップロードに失敗`, 'error');
         }
       }
     }
 
-    // 2. Create page
     btn.innerHTML = '<span class="spinner"></span>Notionに保存中...';
 
     const props = {
       '日記': { title: [{ text: { content } }] },
       '日付': { date: { start: date } }
     };
-    if (selectedMoods.size > 0) {
+    if (selectedMoods.size > 0)
       props['mood'] = { multi_select: [...selectedMoods].map(m => ({ name: m })) };
-    }
-    if (selectedSports.size > 0) {
+    if (selectedSports.size > 0)
       props['運動種別'] = { multi_select: [...selectedSports].map(s => ({ name: s })) };
-    }
-    if (fileIds.length > 0) {
+    if (fileIds.length > 0)
       props['写真'] = { files: fileIds.map(id => ({ type: 'file_upload', file_upload: { id } })) };
-    }
 
     const res = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
@@ -585,14 +517,7 @@ async function saveDiary() {
     }
 
     const page = await res.json();
-    saveToHistory({
-      date, content,
-      moods: [...selectedMoods],
-      sports: [...selectedSports],
-      photoCount: fileIds.length,
-      notionUrl: page.url
-    });
-
+    saveToHistory({ date, content, moods: [...selectedMoods], sports: [...selectedSports], photoCount: fileIds.length, notionUrl: page.url });
     showToast('Notionに保存しました ✓');
     resetForm();
 
@@ -605,9 +530,7 @@ async function saveDiary() {
   }
 }
 
-// PHOTO UPLOAD to Notion
 async function uploadPhoto(file, token, dbId) {
-  // Step 1: Create file upload object
   const createRes = await fetch('https://api.notion.com/v1/files', {
     method: 'POST',
     headers: {
@@ -615,42 +538,31 @@ async function uploadPhoto(file, token, dbId) {
       'Content-Type': 'application/json',
       'Notion-Version': '2022-06-28'
     },
-    body: JSON.stringify({
-      parent: { type: 'database_id', database_id: dbId }
-    })
+    body: JSON.stringify({ parent: { type: 'database_id', database_id: dbId } })
   });
-  if (!createRes.ok) {
-    const e = await createRes.json();
-    throw new Error(e.message || '写真アップロード準備エラー');
-  }
+  if (!createRes.ok) { const e = await createRes.json(); throw new Error(e.message); }
   const { id: fileId, upload_url: uploadUrl } = await createRes.json();
 
-  // Step 2: Upload file binary
   const formData = new FormData();
   formData.append('file', file, file.name);
-
   const uploadRes = await fetch(uploadUrl, {
     method: 'PUT',
     headers: { 'Authorization': 'Bearer ' + token },
     body: formData
   });
   if (!uploadRes.ok) throw new Error('写真バイナリのアップロードに失敗');
-
   return fileId;
 }
 
 function resetForm() {
   document.getElementById('diary-content').value = '';
   document.getElementById('char-count').textContent = '0';
-  selectedMoods.clear();
-  selectedSports.clear();
-  selectedPhotos = [];
+  selectedMoods.clear(); selectedSports.clear(); selectedPhotos = [];
   document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('selected'));
   renderPhotoPreviews();
   document.getElementById('photo-placeholder').style.display = 'block';
 }
 
-// HISTORY
 function saveToHistory(entry) {
   const h = getHistory();
   h.unshift({ ...entry, savedAt: new Date().toISOString() });
@@ -677,10 +589,8 @@ function renderHistory() {
 function openNotion(url) { if (url) window.open(url, '_blank'); }
 function clearHistory() {
   if (!confirm('履歴をすべて削除しますか？\n（Notionのページは削除されません）')) return;
-  localStorage.removeItem('diary_history');
-  renderHistory();
+  localStorage.removeItem('diary_history'); renderHistory();
 }
-
 function formatDateJP(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
@@ -688,8 +598,6 @@ function formatDateJP(dateStr) {
 function escapeHtml(s) {
   return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-
-// TOAST
 let toastTimer;
 function showToast(msg, type='success') {
   const t = document.getElementById('toast');
