@@ -629,7 +629,7 @@ async function uploadPhoto(file, token, dbId) {
   const formData = new FormData();
   formData.append('file', file, file.name);
 
-  const uploadRes = await fetch(uploadUrl, {
+  const uploadRes = await fetch('/api/notion-proxy?url=' + encodeURIComponent(uploadUrl), {
     method: 'PUT',
     headers: { 'Authorization': 'Bearer ' + token },
     body: formData
