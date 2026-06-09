@@ -569,7 +569,7 @@ async function saveDiary() {
       props['写真'] = { files: fileIds.map(id => ({ type: 'file_upload', file_upload: { id } })) };
     }
 
-    const res = await fetch('https://corsproxy.io/?https://api.notion.com/v1/pages', {
+    const res = await fetch('/api/notion-proxy?url=https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + token,
@@ -608,7 +608,7 @@ async function saveDiary() {
 // PHOTO UPLOAD to Notion
 async function uploadPhoto(file, token, dbId) {
   // Step 1: Create file upload object
-  const createRes = await fetch('https://corsproxy.io/?https://api.notion.com/v1/files', {
+  const createRes = await fetch('/api/notion-proxy?url=https://api.notion.com/v1/files', {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + token,
