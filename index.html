@@ -547,7 +547,7 @@ async function saveDiary() {
           if (fid) fileIds.push(fid);
         } catch(photoErr) {
           console.warn('写真アップロード失敗:', photoErr);
-          alert('写真エラー詳細:\n' + photoErr.message);
+          alert('写真エラー: ' + photoErr.message);
         }
       }
     }
@@ -608,7 +608,7 @@ async function saveDiary() {
 // PHOTO UPLOAD to Notion
 async function uploadPhoto(file, token, dbId) {
   // Step 1: ファイルアップロード用URLを取得
-  const createRes = await fetch('/api/notion-proxy?url=' + encodeURIComponent('https://api.notion.com/v1/files'), {
+  const createRes = await fetch('/api/notion-proxy?url=https://api.notion.com/v1/files', {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + token,
@@ -619,14 +619,14 @@ async function uploadPhoto(file, token, dbId) {
   });
   if (!createRes.ok) {
     const errText = await createRes.text();
-    throw new Error('写真Step1失敗(' + createRes.status + '): ' + errText.slice(0, 100));
+    throw new Error('写真Step1失敗(' + createRes.status + '): ' + errText.slice(0, 120));
   }
   const createData = await createRes.json();
   const fileId = createData.id;
   const uploadUrl = createData.upload_url;
-  if (!uploadUrl) throw new Error('upload_urlが取得できません: ' + JSON.stringify(createData).slice(0, 100));
+  if (!uploadUrl) throw new Error('upload_urlなし: ' + JSON.stringify(createData).slice(0, 120));
 
-  // Step 2: ファイル本体をアップロード
+  // Step 2: ファイル本体をアップロード（upload_urlは動的なので別処理）
   const formData = new FormData();
   formData.append('file', file, file.name);
   const uploadRes = await fetch('/api/notion-proxy?url=' + encodeURIComponent(uploadUrl), {
@@ -636,7 +636,7 @@ async function uploadPhoto(file, token, dbId) {
   });
   if (!uploadRes.ok) {
     const errText = await uploadRes.text();
-    throw new Error('写真Step2失敗(' + uploadRes.status + '): ' + errText.slice(0, 100));
+    throw new Error('写真Step2失敗(' + uploadRes.status + '): ' + errText.slice(0, 120));
   }
   return fileId;
 }
