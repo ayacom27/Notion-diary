@@ -547,7 +547,7 @@ async function saveDiary() {
           if (fid) fileIds.push(fid);
         } catch(photoErr) {
           console.warn('写真アップロード失敗:', photoErr);
-          showToast(`写真${i+1}枚目のアップロードに失敗（日記は保存します）`, 'error');
+          alert('写真エラー詳細:\n' + photoErr.message);
         }
       }
     }
